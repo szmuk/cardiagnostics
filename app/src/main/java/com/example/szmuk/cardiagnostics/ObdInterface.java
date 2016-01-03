@@ -22,27 +22,22 @@ public class ObdInterface extends AppCompatActivity
 
         b = (Button) findViewById(R.id.cokolwiek);
 
+        final Bundle bundle = getIntent().getExtras();
+
         View.OnClickListener l = new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Toast.makeText(getApplicationContext(), "Cokolwiek", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), bundle.getString("address"), Toast.LENGTH_SHORT).show();
             }
         };
+
 
         b.setOnClickListener(l);
 
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
 }

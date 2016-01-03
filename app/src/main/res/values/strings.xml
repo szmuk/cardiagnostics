@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CarDiagnostics</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_obd_interface">ObdInterface</string>
+
+    <string name="button1">Guzik</string>
+
+    <string name="authors">Authors</string>
+</resources>
