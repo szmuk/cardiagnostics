@@ -1,11 +1,12 @@
+// PROJECT FOR POLITECHNIKA GDANSKA
+// ADAM SZMUKALA, KAROL MASUHR, PIOTR ZURAWSKI
+
 package com.example.szmuk.cardiagnostics;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -37,8 +38,6 @@ public class CarDiagnostics extends AppCompatActivity
         setContentView(R.layout.activity_car_diagnostics);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // ENABLE BLUETOOTH BUTTON
 
         enable_bt = (Switch) findViewById(R.id.enable_bluetooth);
 
@@ -116,7 +115,7 @@ public class CarDiagnostics extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                // todo: nie dziala
+
                 adapter.notifyDataSetChanged();
             }
         });
@@ -132,15 +131,6 @@ public class CarDiagnostics extends AppCompatActivity
             }
         });
 
-/*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
     }
 
     @Override
@@ -158,13 +148,9 @@ public class CarDiagnostics extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
+        if (id == R.id.action_authors)
         {
-            return true;
-        }
-        else if (id == R.id.action_authors)
-        {
-            return true;
+            Toast.makeText(getBaseContext(), "Project for Politechnika Gdanska\r\nAdam Szmukala,\r\nKarol Masuhr,\r\nPiotr Zurawski", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);

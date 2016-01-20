@@ -8,26 +8,19 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_obd_interface"
-    tools:context="com.example.szmuk.cardiagnostics.ObdInterface">
+    tools:context="com.example.szmuk.cardiagnostics.ObdInterface"
+                android:id="@+id/basicdata">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cokolwiek"
-        android:id="@+id/cokolwiek"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:singleLine="true" />
-
-    <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="RPM: &lt;not connected>"
-        android:id="@+id/rpm"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:text="Read &amp; delete errors"
+        android:id="@+id/errors"
+        android:singleLine="true"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/throttle_pos"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
     <TextView
         android:layout_width="fill_parent"
@@ -35,7 +28,138 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Speed: &lt;not connected>"
         android:id="@+id/speed"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Basic data:"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Distance: &lt;not connected>"
+        android:id="@+id/distance"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/speed"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="RPM: &lt;not connected>"
+        android:id="@+id/rpm"
+        android:layout_below="@+id/distance"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Fuel level: &lt;not connected>"
+        android:id="@+id/fuel_lev"
         android:layout_below="@+id/rpm"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Consumption: &lt;not connected>"
+        android:id="@+id/consumption"
+        android:layout_below="@+id/fuel_lev"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Diagnostic data:"
+        android:id="@+id/diagnosticdata"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/consumption"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="VIN: &lt;not connected>"
+        android:id="@+id/vin"
+        android:layout_below="@+id/diagnosticdata"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Voltage: &lt;not connected>"
+        android:id="@+id/voltage"
+        android:layout_below="@+id/vin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Oil temperature: &lt;not connected>"
+        android:id="@+id/oil_temp"
+        android:layout_below="@+id/voltage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Fuel pressure: &lt;not connected>"
+        android:id="@+id/fuel_pres"
+        android:layout_below="@+id/oil_temp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Mass airflow: &lt;not connected>"
+        android:id="@+id/mass_air"
+        android:layout_below="@+id/intake_pres"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Throttle position: &lt;not connected>"
+        android:id="@+id/throttle_pos"
+        android:layout_below="@+id/mass_air"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Intake pressure: &lt;not connected>"
+        android:id="@+id/intake_pres"
+        android:layout_below="@+id/fuel_pres"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 </RelativeLayout>
