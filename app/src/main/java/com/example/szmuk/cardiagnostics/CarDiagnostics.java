@@ -25,6 +25,7 @@ import java.util.Set;
 public class CarDiagnostics extends AppCompatActivity
 {
     Button b;
+    Button refresh;
     Switch enable_bt;
     ListView paired_list;
 
@@ -80,7 +81,7 @@ public class CarDiagnostics extends AppCompatActivity
             }
         }
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.select_dialog_singlechoice,
+        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.select_dialog_singlechoice,
                 deviceStrs.toArray(new String[deviceStrs.size()]));
 
         //LIST
@@ -98,33 +99,27 @@ public class CarDiagnostics extends AppCompatActivity
                 Intent i = new Intent(view.getContext(), ObdInterface.class);
                 i.putExtra("address", deviceAddress);
 
-                if(btAdapter.isEnabled())
+                if (btAdapter.isEnabled())
                 {
                     startActivity(i);
-                }
-                else
+                } else
                 {
                     Toast.makeText(getBaseContext(), "YOU HAVE TO ENABLE BLUETOOTH FIRST!", Toast.LENGTH_LONG).show();
                 }
             }
         });
-        // show list
 
-        /*
-        alertDialog.setSingleChoiceItems(adapter, -1, new DialogInterface.OnClickListener()
+        refresh = (Button) findViewById(R.id.button_refresh);
+
+        refresh.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(DialogInterface dialog, int which)
+            public void onClick(View v)
             {
-                dialog.dismiss();
-                int position = ((AlertDialog) dialog).getListView().getCheckedItemPosition();
-                String deviceAddress = devices.get(position).toString();
-                // TODO save deviceAddress
+                // todo: nie dziala
+                adapter.notifyDataSetChanged();
             }
         });
-
-        alertDialog.setTitle("Choose Bluetooth device");
-*/
 
         b = (Button) findViewById(R.id.button_pair_new);
 
