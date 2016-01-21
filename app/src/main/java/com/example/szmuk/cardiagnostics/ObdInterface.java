@@ -131,7 +131,7 @@ public class ObdInterface extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                updateView();
+                //updateView();
                 Toast.makeText(getBaseContext(), "Function not implemented.", Toast.LENGTH_SHORT).show();
             }
         });
