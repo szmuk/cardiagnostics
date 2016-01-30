@@ -1,5 +1,4 @@
 // PROJECT FOR POLITECHNIKA GDANSKA
-// ADAM SZMUKALA, KAROL MASUHR, PIOTR ZURAWSKI
 
 package com.example.szmuk.cardiagnostics;
 
@@ -65,8 +64,6 @@ public class CarDiagnostics extends AppCompatActivity
             }
         });
 
-        // PAIRED DEVICES LIST
-
         ArrayList deviceStrs = new ArrayList();
         final ArrayList devices = new ArrayList();
 
@@ -89,10 +86,8 @@ public class CarDiagnostics extends AppCompatActivity
 
         paired_list.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id)
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-
                 String deviceAddress = devices.get(position).toString();
 
                 Intent i = new Intent(view.getContext(), ObdInterface.class);
@@ -101,7 +96,8 @@ public class CarDiagnostics extends AppCompatActivity
                 if (btAdapter.isEnabled())
                 {
                     startActivity(i);
-                } else
+                }
+                else
                 {
                     Toast.makeText(getBaseContext(), "YOU HAVE TO ENABLE BLUETOOTH FIRST!", Toast.LENGTH_LONG).show();
                 }
@@ -115,7 +111,6 @@ public class CarDiagnostics extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
                 adapter.notifyDataSetChanged();
             }
         });
@@ -130,27 +125,23 @@ public class CarDiagnostics extends AppCompatActivity
                 startActivityForResult(new Intent(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS), 0);
             }
         });
-
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         getMenuInflater().inflate(R.menu.menu_car_diagnostics, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_authors)
         {
-            Toast.makeText(getBaseContext(), "Project for Politechnika Gdanska\r\nAdam Szmukala,\r\nKarol Masuhr,\r\nPiotr Zurawski", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Project for Politechnika Gdanska\r\nadamszmuk@gmail.com", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);

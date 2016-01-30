@@ -26,15 +26,11 @@ import com.github.pires.obd.commands.pressure.FuelPressureCommand;
 import com.github.pires.obd.commands.pressure.IntakeManifoldPressureCommand;
 import com.github.pires.obd.commands.protocol.EchoOffCommand;
 import com.github.pires.obd.commands.protocol.LineFeedOffCommand;
-import com.github.pires.obd.commands.protocol.ObdResetCommand;
 import com.github.pires.obd.commands.protocol.SelectProtocolCommand;
 import com.github.pires.obd.commands.protocol.TimeoutCommand;
 import com.github.pires.obd.commands.temperature.AmbientAirTemperatureCommand;
 import com.github.pires.obd.enums.ObdProtocols;
 
-import org.w3c.dom.Text;
-
-import java.io.IOException;
 import java.util.UUID;
 
 public class ObdInterface extends AppCompatActivity
@@ -164,7 +160,8 @@ public class ObdInterface extends AppCompatActivity
 
             socket.connect();
 
-            try {
+            try
+            {
                 new EchoOffCommand().run(socket.getInputStream(), socket.getOutputStream());
                 new LineFeedOffCommand().run(socket.getInputStream(), socket.getOutputStream());
                 new TimeoutCommand(600).run(socket.getInputStream(), socket.getOutputStream());
@@ -192,13 +189,6 @@ public class ObdInterface extends AppCompatActivity
 
             while (!Thread.currentThread().isInterrupted())
             {
-                try
-                {
-                    Thread.sleep(1 * 1000);
-                }
-                catch(Exception exc)
-                {}
-
                 speedCommand.run(socket.getInputStream(), socket.getOutputStream());
                 distCommand.run(socket.getInputStream(), socket.getOutputStream());
                 engineRpmCommand.run(socket.getInputStream(), socket.getOutputStream());
@@ -212,13 +202,6 @@ public class ObdInterface extends AppCompatActivity
                 intakePressureCommand.run(socket.getInputStream(), socket.getOutputStream());
                 massAirflowCommand.run(socket.getInputStream(), socket.getOutputStream());
                 throttlePosCommand.run(socket.getInputStream(), socket.getOutputStream());
-
-                try
-                {
-                    Thread.sleep(1 * 1000);
-                }
-                catch(Exception exc)
-                {}
 
                 speed = speedCommand.getFormattedResult();
                 distance = distCommand.getFormattedResult();
@@ -234,8 +217,6 @@ public class ObdInterface extends AppCompatActivity
                 massAirflow = massAirflowCommand.getFormattedResult();
                 throttlePos = throttlePosCommand.getFormattedResult();
 
-
-
                 updateView();
 
                 connected = true;
@@ -247,13 +228,6 @@ public class ObdInterface extends AppCompatActivity
 
             connected = false;
             tries++;
-
-            try
-            {
-                Thread.sleep(10 * 1000);
-            }
-            catch(Exception exc)
-            {}
         }
     }
 
@@ -267,7 +241,7 @@ public class ObdInterface extends AppCompatActivity
             distanceV.setText("Distance: " + distance);
             rpmV.setText("RPM: " + rpm);
             fuelLevelV.setText("Fuel level: " + fuelLevel);
-            consumptionV.setText("Constumption: " + consumption);
+            consumptionV.setText("Consumption: " + consumption);
 
             vinV.setText("VIN: " + vin);
             voltageV.setText("Voltage: " + voltage);
